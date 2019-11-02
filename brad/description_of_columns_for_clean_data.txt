@@ -1,0 +1,34 @@
+COLUMN_NAME, COLUMN_DESCRIPTION
+id, unique id for association
+date_creat, date association created
+date_disso, date association ended (i think 0001-01-01 means it still exists)
+nature, declared as 1901 association or other
+groupement, Simple ou union ou fédération ( S, U, F )
+titre, name of association
+titre_court, short name of assocaition
+objet, free text description of activities of association
+objet_social1, code to describe primary activity
+objet_social2, code to describe secondary activity
+objet_social1_desc, description of primary activity
+objet_social2_desc,description of secondary activity
+adrs_complement, all adrs are headquarter address fields
+adrs_numvoie
+adrs_repetition
+adrs_typevoie
+adrs_libvoie
+adrs_distrib
+adrs_codeinsee
+adrs_codepostal
+adrs_libcommune
+adrg_declarant, all adrg are address fields for where the assocaition carries out its activities
+adrg_complemid
+adrg_complemgeo
+adrg_libvoie
+adrg_distrib
+adrg_codepostal
+adrg_achemine
+adrg_pays
+dir_civilite, unknown - original description: Code de la civilié du dirigeant principal – seul information d’ordre
+patronymique
+position, A - active D - dissolved(ended) S - deleted
+association_active, 1 indicates that association currently active 0 - not active
