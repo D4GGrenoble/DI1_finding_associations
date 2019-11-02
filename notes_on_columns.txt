@@ -1,0 +1,50 @@
+# Notes on potentially useful columns
+From Pierre Pereira :)
+
+In order to have a better understanding of the columns,
+here is a selection i've made, after a little research
+of what each columns mean.
+
+Note: 
+The siege is the official association's location (where the mail is sent for exemple).
+The gestion is where the association does its job, its events. This location is more interesting
+if we want to meet or contact them.
+
+Each columns starting by 'adrs' means siege address, and when starting by 'adrg', it means gestion address.
+
+Useless columns:
+    - id_ex: old unique number (now id)
+    - siret: falcultative number, identifying an address (we already have the address)
+    - rup_mi: useful for the minister
+    - gestion: ? nothing found on the internet, seems useless ?
+    - groupement: Federation, Union or Simple association, not usefull
+    - date_decla: last time the association updated its status
+    - date_publi: when the association's creation has been wrote in the JO (journal keeping all associations informations)
+    - objet_social1: seems like random numbers, nothing found on the internet
+    - objet_social2: same as objet_social1
+    - adrs_complement: specifications about siege location (like floor number)
+    - adrs_repetition: doesn't seem to mean anything ?
+    - adrs_codeinsee: old number, not used anymore
+    - adrg_declarant: name of the person that declared the association (not that important, 97% of the column is nan)
+    - adrg_complemid: 73% is nan, not useful for the gestion's location
+    - adrg_complemgeo: same as adrg_complemid
+    - adrg_distrib, adrg_codepostal: useless for the gestion's address
+    - dir_civilite: useless
+    - publiweb: useless
+    - maj_time: useless
+
+Useful columns:
+    - id: unique RNA number identifying each associations
+    - date_creat: association's date of creation
+    - date_disso: if dissolved, the date of dissolvation
+    - nature: whether the association is declared or not (D for declared)
+    - titre: Name of the association
+    - titre_court: initials
+    - objet: Goal of the association
+    - adrs_numvoie, adrs_typevoie, adrs_libvoie, adrs_libcommune, adrs_codepostal: with all those columns combined, we have the siege location
+    - adrs_distrib: seems like when all the columns above are not well filed, this column fill the void (maybe not that useful)
+    - adrg_libvoie, adrg_achemine, adrg_codepostal: gestion's address
+    - adrg_pays: country where is the association (mostly france... the city seems enought ?)
+    - siteweb: mostly nan, but when exists, its cool
+    - observation: some comments on the association (like old names, relocations...), mostly nan
+    - position: Active, Dissolved, Supressed
