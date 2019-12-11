@@ -27,15 +27,12 @@ If you are not sure how to contribute your code speak to Brad :)
 
 ## Contributors
 
+* **Jean-Baptiste Barre** - [jbbarre](https://github.com/jbbarre)
 * **Myriam Begel** - [mbegel](https://github.com/mbegel)
 * **Thibaud Godon** - [thibgo](https://github.com/thibgo)
 * **Brad Keogh** - [keoghdata](https://github.com/keoghdata)
 * **Mehdi Mediouni**
 * **Shachar Mirkin**
 * **Pierre Pereira**
-* **Younes Zaibila**
 * **Sung-Ho**
-* **JB ???**
-
-* **name**
-
+* **Younes Zaibila**
