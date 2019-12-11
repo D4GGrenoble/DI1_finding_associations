@@ -24,3 +24,18 @@ I suggest that we keep this repo tidy by:
 I think there will be lots of jupyter notebooks which can cause conflicts, so please do not push other peoples notebooks that you have opened but not edited!
 
 If you are not sure how to contribute your code speak to Brad :)
+
+## Contributors
+
+* **Myriam Begel** - [mbegel](https://github.com/mbegel)
+* **Thibaud Godon** - [thibgo](https://github.com/thibgo)
+* **Brad Keogh** - [keoghdata](https://github.com/keoghdata)
+* **Mehdi Mediouni**
+* **Shachar Mirkin**
+* **Pierre Pereira**
+* **Younes Zaibila**
+* **Sung-Ho**
+* **JB ???**
+
+* **name**
+
