@@ -1,0 +1,16 @@
+body {
+    width: 80%;
+    margin-left: 10%;
+}
+
+iframe {
+    border: none;
+}
+
+._dash-undo-redo {
+    display: none;
+}
+
+h4, h5 {
+    color: gray;
+}
