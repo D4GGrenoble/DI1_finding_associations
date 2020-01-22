@@ -8,21 +8,31 @@ import plotly.graph_objs as go
 from textwrap import dedent
 import pandas as pd
 import glob
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 with open('figures/20191105_nb_asso_per_dep.html', 'r') as f:
     map_departements = f.read()
 with open('figures/20191105_nb_asso_per_dep_per10000.html', 'r') as f:
     map_departements_hab = f.read()
 
-root = '/home/myriam/DataScience/dataforgoodgrenoble/data'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-repartition = pd.read_csv(os.path.join(root, 'processed/repartition_obj.csv'))
-hist_df = pd.read_csv(os.path.join(root, 'processed/nb_asso_per_year.csv'))
+repartition = pd.read_csv('repartition_obj.csv')
+hist_df = pd.read_csv('nb_asso_per_year.csv')
 image_directory = 'figures'
 static_image_route = '/static/'
 pics = [pic.split('/')[-1] for pic in glob.glob('%s/*.png' % image_directory)]
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = flask.Flask(__name__)
+server.secret_key = os.getenv('SECRET_KEY')
+
+app = dash.Dash(name=__name__,
+                external_stylesheets=external_stylesheets,
+                server=server,
+                url_base_pathname='/associations/')
 
 app.layout = html.Div(children=[
     html.H1('Data For Good Grenoble'),
@@ -134,4 +144,4 @@ def serve_image(image_path):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=os.getenv('DEBUG'))
