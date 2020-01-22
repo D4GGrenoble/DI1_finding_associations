@@ -93,7 +93,7 @@ app.layout = html.Div(children=[
         width='50%'
     ),
 
-    html.H5('Type of associations'),
+    html.H3('Type of associations'),
     dcc.Markdown(dedent('''
     We grouped the associations by their activity : Culture and hobbies,
     Social action, Sport, Education, Networking, Healthcare, Environment,
@@ -109,7 +109,7 @@ app.layout = html.Div(children=[
         columns=[{"name": i, "id": i} for i in repartition.columns],
         data=repartition.to_dict('records'),
     ),
-    html.H6('Description of the associations'),
+    html.H3('Description of the associations'),
     dcc.Markdown(dedent('''
     Another way of picturing the association landscape is to create a wordcloud
     from the free text description of each association. This data is given by the
@@ -121,7 +121,7 @@ app.layout = html.Div(children=[
     '''), className='text_left'),
     html.Img(src='/static/wordcloud.png', className='image_right35'),
 
-    html.H5('History of creation in Grenoble'),
+    html.H3('History of creation in Grenoble'),
     dcc.Markdown(dedent('''
     Finally, we had a look on the history of creation of associations in Grenoble.
     We notice an explosion of the creations after 2006 that is now stable at more
