@@ -14,3 +14,13 @@ iframe {
 h4, h5 {
     color: gray;
 }
+
+.text_left {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.image_right35 {
+  width: 35%;
+}

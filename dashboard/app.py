@@ -4,6 +4,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
+import plotly.graph_objs as go
 from textwrap import dedent
 import pandas as pd
 import glob
@@ -16,6 +17,7 @@ with open('figures/20191105_nb_asso_per_dep_per10000.html', 'r') as f:
 root = '/home/myriam/DataScience/dataforgoodgrenoble/data'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 repartition = pd.read_csv(os.path.join(root, 'processed/repartition_obj.csv'))
+hist_df = pd.read_csv(os.path.join(root, 'processed/nb_asso_per_year.csv'))
 image_directory = 'figures'
 static_image_route = '/static/'
 pics = [pic.split('/')[-1] for pic in glob.glob('%s/*.png' % image_directory)]
@@ -61,7 +63,7 @@ app.layout = html.Div(children=[
     Nord, Rhône and Bouches-du-Rhône corresponding respectively to Lille, Lyon and
     Marseille.
     To get a more representative view, we also plotted a map normalized by the
-    number of inhabitants. The results are stinkingly different.
+    number of inhabitants. The results are strikingly different.
     The 3 departments in white in the north-east correspond to a region that was
     not part of France when the law defining associations was voted in 1901.
     Thus there exists associations there but with another status. The few that
@@ -72,13 +74,13 @@ app.layout = html.Div(children=[
     ''')),
     html.Iframe(
         srcDoc=map_departements,
-        height='1050px',
-        width='100%'
+        height='525px',
+        width='50%'
     ),
     html.Iframe(
         srcDoc=map_departements_hab,
-        height='1050px',
-        width='100%'
+        height='525px',
+        width='50%'
     ),
 
     html.H5('Type of associations'),
@@ -106,8 +108,8 @@ app.layout = html.Div(children=[
     We can find the same pattern as in the above table but we can also see the
     cultural associations are oriented around art and music while the social associations
     are about helping one another.
-    ''')),
-    html.Img(src='/static/wordcloud.png'),
+    '''), className='text_left'),
+    html.Img(src='/static/wordcloud.png', className='image_right35'),
 
     html.H5('History of creation in Grenoble'),
     dcc.Markdown(dedent('''
@@ -115,7 +117,12 @@ app.layout = html.Div(children=[
     We notice an explosion of the creations after 2006 that is now stable at more
     than 200 associations created each year.
     ''')),
-    html.Img(src='/static/year_grenoble.png')
+    dcc.Graph(figure=dict(
+        data=[go.Scatter(x=hist_df['annee'], y=hist_df['count'])],
+        layout={'title':'Number of new association registered in Grenoble',
+                'xaxis': {'title': 'Year'},
+                'yaxis': {'title': 'Number of new associations'}
+        })),
 ])
 
 @app.server.route('{}<image_path>.png'.format(static_image_route))
